@@ -119,13 +119,6 @@ function App() {
 
     //run the ffmpeg command to convert the temp.mp4 file into a gif file
     //-i is the input file and -f flag to indicate an gif file
-    // await ffmpeg.run('-i', 'temp.mp4', '-f', 'gif', 'out.gif');
-    // await ffmpeg.run("-i","temp.mp4", "-t",end, "-ss",beginning, "-f", "gif", "out.gif");
-    // if (beginning === "" || end === "") {
-    //   await ffmpeg.run('-i', 'temp.mp4', '-f', 'gif', 'out.gif');
-    // } else {
-    //   await ffmpeg.run("-i","temp.mp4", "-t",end, "-ss",beginning, "-f", "gif", "out.gif");
-    // }
 
     if (beginning === "" || end === "") {
       await ffmpeg.run('-i', 'temp.mp4', 'out.gif');
@@ -165,6 +158,7 @@ function App() {
   const convertToMp4 = async (e) => {
     e.preventDefault(); // stop the page from refreshing
     setIsWorkingOnVid(true);
+    setConvertedVideo();
     rotateDisplayGif();
     let videoType = video.type;
     let videoName = video.name;
@@ -216,6 +210,8 @@ function App() {
       new Blob([data.buffer], { type: 'video/mp4' }),
     );
 
+    setEnd('');
+    setBeginning('');
     setIsWorkingOnVid(false);
     setConvertedVideo(url);
   };
