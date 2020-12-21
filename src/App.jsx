@@ -135,19 +135,11 @@ function App() {
 
     // read the file
     const data = ffmpeg.FS('readFile', 'out.gif'); // convert it to output.gif
-    // console.log('logging data');
-    // console.log(data);
+
     // convert it to a url so that it can be used
     const url = URL.createObjectURL(
       new Blob([data.buffer], { type: 'image/gif' }),
     );
-    // const newContainer = document.createElement("li");
-    // const link = document.createElement("a");
-    // console.log(url);
-    // link.href = url;
-    // link.setAttribute("download", "image.png"); //or any other extension
-    // document.body.appendChild(link);
-
 
     setEnd('');
     setBeginning('');
@@ -225,7 +217,6 @@ function App() {
       {video && (
         <video controls width="250" src={URL.createObjectURL(video)}></video>
       )}
-      {/* <input type="file" onChange={(e) => setVideo(e.target.files?.item(0))} /> */}
       <input
         type="file"
         onChange={(e) => processInput(e.target.files?.item(0))}
@@ -269,7 +260,6 @@ function App() {
       </video>}
       
       {isWorkingOnVid && <img src={workInProgressGif} width="300" alt="working cat" />}
-      {/* {isWorkingOnVid && <img src={workInProgressGif} width="300" alt="working girl" />} */}
 
       <div className="selfieDiv">
       <img src={logo} width="300" alt="Logo" />
