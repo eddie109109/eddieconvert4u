@@ -43,3 +43,36 @@
     transform: rotate(360deg);
   }
 }
+
+
+.selfieDiv {
+  margin-top: 300px;
+}
+
+.footerDiv {
+  text-align: center;
+}
+
+.tooltip {
+  position: relative;
+  display: inline-block;
+  border-bottom: 1px dotted black;
+}
+
+.tooltip .tooltiptext {
+  visibility: hidden;
+  width: 320px;
+  background-color:rgb(81, 207, 50);
+  color: #000;
+  text-align: center;
+  border-radius: 16px;
+  padding: 5px;
+
+  /* Position the tooltip */
+  position: absolute;
+  z-index: 1;
+}
+
+.tooltip:hover .tooltiptext {
+  visibility: visible;
+}
